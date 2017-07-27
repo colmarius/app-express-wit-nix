@@ -13,4 +13,7 @@ yarn2nix.mkYarnPackage {
   yarnLock = ./yarn.lock;
   src = ./.;
   publishBinsFor = [ "myapp" ];
+  preConfigure = ''
+    rm -rf $out/node_modules
+  '';
 }
